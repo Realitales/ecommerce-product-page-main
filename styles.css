@@ -262,12 +262,12 @@ header {
 }
 
 .carouselbtn-next {
-  background-image: url(/images/nextbtn.png);
+  background-image: url(images/nextbtn.png);
   right: 0;
   background-size: cover;
 }
 .carouselbtn-prev {
-  background-image: url(/images/previousbtn.png);
+  background-image: url(images/previousbtn.png);
   background-size: cover;
 }
 
