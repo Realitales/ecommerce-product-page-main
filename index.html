@@ -22,6 +22,15 @@
         <div class="navbar-hamburger">
           <div class="navbar-hamburger-lines"></div>
         </div>
+        <div class="navbarcontainer">
+          <ul>
+            <li>Collections</li>
+            <li>Men</li>
+            <li>Women</li>
+            <li>About</li>
+            <li>Contact</li>
+          </ul>
+        </div>
         <div class="logo">
           <img src="/images/logo.svg" alt="sneaker's logo" />
         </div>
@@ -29,9 +38,31 @@
           <img src="images/icon-cart.svg" id="cart" alt="picture of a man" />
           <img src="/images/image-avatar.png" id="avatar" alt="cart icon" />
         </div>
+        <div class="cartcontainer">
+          <h1>Cart</h1>
+          <div class="itemcontainer">
+            <p id="EmptyItem">Your cart is empty.</p>
+            <div class="items">
+              <img src="/images/image-product-1.jpg" alt="" />
+              <div class="itemstext">
+                <p>Automn Limited Edition...</p>
+                <p id="price">
+                  $125.00 x <span id="amountofitem"></span
+                  ><span id="totalprice"></span>
+                </p>
+              </div>
+              <button id="discardbtn">
+                <img src="/images/icon-delete.svg" alt="" />
+              </button>
+            </div>
+            <div class="checkoutbtn">
+              <h1>Checkout</h1>
+            </div>
+          </div>
+        </div>
       </header>
 
-      <section>
+      <section class="carousel-section">
         <div class="carousel" active-carousel>
           <button
             class="carouselbtn carouselbtn-next"
@@ -55,6 +86,34 @@
               <img src="/images/image-product-4.jpg" alt="" />
             </li>
           </ul>
+        </div>
+      </section>
+
+      <section class="description">
+        <div class="textcontainer">
+          <h2>Sneaker Company</h2>
+          <h1>Fall Limited Edition Sneakers</h1>
+          <p>
+            These low-profile sneakers are your perfect casual wear companion.
+            Featuring a durable rubber outer sole, they'll withstand everything
+            the weather can offer.
+          </p>
+          <div class="pricecontainer">
+            <h1>$125.00</h1>
+            <div class="priceoffpercentage">
+              <span>50%</span>
+            </div>
+            <h2>$250.00</h2>
+          </div>
+        </div>
+        <div class="additemoptions">
+          <button id="minusitem">-</button>
+          <span id="counter">0</span>
+          <button id="additem">+</button>
+        </div>
+        <div class="addcartcontainer">
+          <img src="/images/icon-cart-white.png" alt="" />
+          <h1>Add to cart</h1>
         </div>
       </section>
 
