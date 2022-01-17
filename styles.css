@@ -142,6 +142,7 @@ header {
 }
 #avatar {
   position: relative;
+  height: 1.5em;
   bottom: 20%;
 }
 /*Cart container*/
