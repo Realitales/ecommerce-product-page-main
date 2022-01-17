@@ -61,8 +61,12 @@ header {
 }
 .navbarcontainer ul {
   list-style: none;
-  margin: 3em 1.3em;
+  padding: 3em 1.3em;
+  margin-top: 1.3em;
   line-height: 2.5em;
+}
+.navbarcontainer ul > li {
+  cursor: pointer;
 }
 
 /*Open state of navbar button and navbar container*/
@@ -232,6 +236,9 @@ header {
   height: 288px;
   position: relative;
 }
+.carousel > ul {
+  list-style-type: none;
+}
 .slide {
   position: absolute;
   inset: 0;
@@ -377,4 +384,44 @@ header {
   margin-right: 1em;
   position: relative;
   top: 2px;
+}
+
+@media (min-width: 400px) {
+  body {
+    margin: 0em 10em;
+  }
+  header {
+    display: flex;
+
+    margin: 2em 1em;
+    border-bottom: 1px var(--lgrayishblue) solid;
+  }
+  .navbarcontainer {
+    background-color: transparent;
+    position: relative;
+    width: 200px;
+    height: 0;
+    right: 0%;
+    order: 2;
+  }
+  .navbarcontainer ul {
+    display: flex;
+    padding: 0;
+    margin: 0;
+  }
+  .navbarcontainer ul > li {
+    font-weight: 500;
+    color: var(--dgrayblue);
+    font-size: clamp();
+    margin-right: 2em;
+  }
+  .navbar-hamburger {
+    display: none;
+  }
+  .logo > img {
+    width: 10em;
+  }
+  .icons {
+    order: 3;
+  }
 }
