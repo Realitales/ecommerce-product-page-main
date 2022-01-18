@@ -1,17 +1,19 @@
 const buttons = document.querySelectorAll("[data-button-carousel]");
 const navbarbutton = document.querySelector(".navbar-hamburger");
 const itemcounter = document.querySelector("#counter");
-const body = document.querySelector("body");
+const bodyclick = document.querySelector("body");
 const cartbutton = document.querySelector("#cart");
+const cartcontainer = document.querySelector(".cartcontainer");
 let itempricecounter = 0;
 let itemcount = 0
 
 
 cartbutton.addEventListener("click", () => {
    
-    const cartcontainer = document.querySelector(".cartcontainer");
+    
     cartcontainer.classList.toggle("cart-show-state");
 })
+
 
 function cartfunction(amountofitem, totalprice){
 
