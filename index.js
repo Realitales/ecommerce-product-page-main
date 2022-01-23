@@ -6,12 +6,26 @@ const cartbutton = document.querySelector("#cart");
 const cartcontainer = document.querySelector(".cartcontainer");
 let itempricecounter = 0;
 let itemcount = 0
+let navbarstate = false;
+let cartstate = false;
+
+
+
+
 
 
 cartbutton.addEventListener("click", () => {
    
+    if(cartstate == false ){
+        cartcontainer.classList.add("cart-show-state");
+        cartstate=true;
+        
+    }
+    else {
+        cartcontainer.classList.remove("cart-show-state");
+        cartstate=false;
+    }
     
-    cartcontainer.classList.toggle("cart-show-state");
 })
 
 
@@ -67,7 +81,7 @@ function itemfunction (){
     })
 }
 
-let navbarstate = false;
+
 navbarbutton.addEventListener("click", () => {
 
     const navbarcontainer = document.querySelector(".navbarcontainer");
