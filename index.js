@@ -11,7 +11,6 @@ let itemcount = 0
 let navbarstate = false;
 let cartstate = false;
 
-
 document.addEventListener("click", (e) => {
 
     if(e.target.classList.contains("cartheader") ||
@@ -75,13 +74,13 @@ function cartfunction(amountofitem, totalprice){
        checkoutbtn.style.visibility = "hidden";
        itemselected.style.visibility = "hidden";
        EmptyState.style.display = "block";
-       numberofitems.style.display = "none";
+       numberofitems.style.visibility= "hidden";
     }
     
     else{
        checkoutbtn.style.visibility = "visible";
        itemselected.style.visibility = "visible";
-       numberofitems.style.display = "block";
+       numberofitems.style.visibility = "visible";
        EmptyState.style.display = "none";
     }
     aoi.innerText = `${amountofitem} `

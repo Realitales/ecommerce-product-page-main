@@ -154,6 +154,7 @@ header {
   border-radius: 7px;
   top: -0.5em;
   font-family: var(--mfont);
+  visibility: visible;
 }
 #cart {
   margin-right: 1em;
@@ -478,16 +479,20 @@ header {
   }
   #numberofitems {
     position: relative;
-    left: 25%;
-    bottom: 50%;
-    transform: translateY(-200%);
-    width: 18%;
+
+    right: -2.8em;
+    top: -3.3em;
+  }
+  .cart-icon-numberofitem {
+    margin-right: 5em;
+    width: 0%;
   }
   .icons {
     position: static;
     margin-top: 0.6em;
     margin-left: 1.5em;
     order: 3;
+    z-index: 3;
   }
   #avatar {
     height: 3.5em;
@@ -495,7 +500,7 @@ header {
   }
   #cart {
     height: 1.5em;
-    margin-right: 5em;
+    margin-right: 0;
     position: relative;
     bottom: 10%;
   }
