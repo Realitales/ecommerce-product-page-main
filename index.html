@@ -34,29 +34,33 @@
         <div class="logo">
           <img src="images/logo.svg" alt="sneaker's logo" />
         </div>
+
         <div class="icons">
-          <img src="images/icon-cart.svg" id="cart" alt="picture of a man" />
-          <img src="images/image-avatar.png" id="avatar" alt="cart icon" />
+          <div class="cart-icon-numberofitem">
+            <img src="images/icon-cart.svg" id="cart" alt="cart icon" />
+            <span id="numberofitems">3</span>
+          </div>
+          <img src="images/image-avatar.png" id="avatar" alt="profile avatar" />
         </div>
         <div class="cartcontainer">
           <h1 class="cartheader">Cart</h1>
           <div class="itemcontainer">
-            <p id="EmptyItem">Your cart is empty.</p>
+            <p class="EmptyItem">Your cart is empty.</p>
             <div class="items">
-              <img src="images/image-product-1.jpg" alt="" />
+              <img id="product-image" src="images/image-product-1.jpg" alt="" />
               <div class="itemstext">
-                <p>Automn Limited Edition...</p>
+                <p class="item-name">Automn Limited Edition...</p>
                 <p id="price">
                   $125.00 x <span id="amountofitem"></span
                   ><span id="totalprice"></span>
                 </p>
               </div>
               <button id="discardbtn">
-                <img src="images/icon-delete.svg" alt="" />
+                <img id="discard-button" src="images/icon-delete.svg" alt="" />
               </button>
             </div>
             <div class="checkoutbtn">
-              <h1>Checkout</h1>
+              <h1 class="checkout-button">Checkout</h1>
             </div>
           </div>
         </div>

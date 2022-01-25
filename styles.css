@@ -4,6 +4,7 @@
   --orange: hsl(26, 100%, 55%);
   --orange2: hsl(26, 100%, 73%);
   --porange: hsl(25, 100%, 94%);
+  --dorange: hsl(26, 82%, 40%);
   --vdarkblue: hsl(220, 13%, 13%);
   --dgrayblue: hsl(219, 9%, 45%);
   --grayishblue: hsl(220, 14%, 75%);
@@ -140,6 +141,20 @@ header {
   top: 25%;
   right: 10%;
 }
+
+#numberofitems {
+  position: absolute;
+  right: 3.5em;
+  font-size: 10px;
+  background: var(--orange);
+  color: #fff;
+  padding: 0 5px;
+  vertical-align: top;
+  margin-left: -10px;
+  border-radius: 7px;
+  top: -0.5em;
+  font-family: var(--mfont);
+}
 #cart {
   margin-right: 1em;
   height: 1.2em;
@@ -192,12 +207,12 @@ header {
   display: block;
 }
 .items {
-  margin: 1.5em 0em;
-  padding: 0 1.5em;
   display: flex;
   justify-content: space-around;
   width: 100%;
   visibility: hidden;
+  padding: 1em;
+  margin-top: 0.5em;
 }
 .items > img {
   border-radius: 5px;
@@ -396,6 +411,9 @@ header {
   main {
     margin: 0em clamp(1em, 10vw, 20em);
   }
+  .background-color-fx::before {
+    background: none;
+  }
   .carousel {
     display: none;
   }
@@ -434,7 +452,7 @@ header {
     position: relative;
     padding-bottom: 3em;
   }
-  .navbarcontainer ul > li a {
+  .navbarcontainer ul > li a:hover {
     color: black;
   }
   .navbarcontainer ul li a::before {
@@ -457,6 +475,13 @@ header {
   }
   .logo > img {
     width: 10em;
+  }
+  #numberofitems {
+    position: relative;
+    left: 25%;
+    bottom: 50%;
+    transform: translateY(-200%);
+    width: 18%;
   }
   .icons {
     position: static;
@@ -558,8 +583,8 @@ header {
     height: 18em;
     box-shadow: 0px 3px 10px 0px #cecece;
     z-index: 3;
-    top: 10%;
-    left: clamp(50em, 65vw, 81em);
+    top: 12%;
+    left: clamp(50em, 70%, 81em);
     display: none;
   }
   .cart-show-state {
@@ -580,6 +605,8 @@ header {
     grid-template-rows: 1fr 1fr;
   }
   .items {
+    padding: 0 1.5em;
+    margin: 0;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -591,18 +618,16 @@ header {
     outline: 2px var(--orange) solid;
     border-radius: 100px;
   }
-}
-
-/*
-@media (max-width: 1250px) {
-  .cartcontainer {
-    left: 59vw;
+  #additem:hover {
+    color: var(--dorange);
   }
-}
-@media (max-width: 1050px) {
-  .cartcontainer {
-    left: clamp(37em, 50vw, 89em);
+  #minusitem:hover {
+    color: var(--dorange);
   }
 }
 
-*/
+@media (max-width: 1366px) and (min-width: 600px) {
+  .cartcontainer {
+    left: 63vw;
+  }
+}
