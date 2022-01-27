@@ -6,10 +6,65 @@ const body = document.querySelector("body");
 const cartcontainer = document.querySelector(".cartcontainer");
 const navbarcontainer = document.querySelector(".navbarcontainer");
 const numberofitems = document.querySelector("#numberofitems");
+const pictureselection = document.querySelectorAll(".pictureselection");
 let itempricecounter = 0;
 let itemcount = 0
 let navbarstate = false;
 let cartstate = false;
+
+picture_selector();
+function picture_selector(){
+
+    const active1 = document.querySelector("[data-active-1]");
+    const active2 = document.querySelector("[data-active-2]");
+    const active3 = document.querySelector("[data-active-3]");
+    const active4 = document.querySelector("[data-active-4]");
+    const activeimage = document.querySelector("[data-active-image]");
+
+    active1.addEventListener("click", () => {
+        activeimage.src ="images/image-product-1.jpg";
+        if(active2.dataset.currentActive == true || 
+           active3.dataset.currentActive == true ||
+           active4.dataset.currentActive == true) return
+           active1.dataset.currentActive = true;
+           delete active2.dataset.currentActive;
+           delete active3.dataset.currentActive;
+           delete active4.dataset.currentActive;
+    })
+    active2.addEventListener("click", () => {
+        activeimage.src ="images/image-product-2.jpg";
+        if(active1.dataset.currentActive == true || 
+            active3.dataset.currentActive == true ||
+            active4.dataset.currentActive == true) return
+            active2.dataset.currentActive = true;
+            delete active1.dataset.currentActive;
+            delete active3.dataset.currentActive;
+            delete active4.dataset.currentActive;
+    })
+    active3.addEventListener("click", () => {
+        activeimage.src ="images/image-product-3.jpg";
+        if(active2.dataset.currentActive == true || 
+            active1.dataset.currentActive == true ||
+            active4.dataset.currentActive == true) return
+            active3.dataset.currentActive = true;
+            delete active2.dataset.currentActive;
+            delete active1.dataset.currentActive;
+            delete active4.dataset.currentActive;
+    })
+    active4.addEventListener("click", () => {
+        activeimage.src ="images/image-product-4.jpg";
+        if(active2.dataset.currentActive == true || 
+            active1.dataset.currentActive == true ||
+            active3.dataset.currentActive == true) return
+            active4.dataset.currentActive = true;
+            delete active2.dataset.currentActive;
+            delete active1.dataset.currentActive;
+            delete active3.dataset.currentActive;
+    })
+
+}
+
+
 
 document.addEventListener("click", (e) => {
 
@@ -128,20 +183,17 @@ navbarbutton.addEventListener("click", () => {
 })
 
 buttons.forEach(button => {
-
     button.addEventListener("click", () => {
 
        const offset = button.dataset.buttonCarousel === "next" ? 1 : -1
        const slides = button.closest("[active-carousel]").querySelector("[data-slides]")
-
+    
        const activeSlide = slides.querySelector("[data-active-picture]")
        let newIndex = [...slides.children].indexOf(activeSlide) + offset;
        if (newIndex < 0) newIndex = slides.children.length - 1 
        if (newIndex >= slides.children.length) newIndex = 0 
-
+   
        slides.children[newIndex].dataset.activePicture = true
        delete activeSlide.dataset.activePicture
-       
-       console.log(newIndex);
     })
 })

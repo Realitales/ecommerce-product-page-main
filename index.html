@@ -38,7 +38,7 @@
         <div class="icons">
           <div class="cart-icon-numberofitem">
             <img src="images/icon-cart.svg" id="cart" alt="cart icon" />
-            <span id="numberofitems">3</span>
+            <span id="numberofitems"></span>
           </div>
           <img src="images/image-avatar.png" id="avatar" alt="profile avatar" />
         </div>
@@ -95,14 +95,22 @@
 
       <section class="ContentBody">
         <section class="PictureContainer">
-          <div class="headimage">
-            <img src="images/image-product-1.jpg" alt="" />
+          <div id="headimage">
+            <img data-active-image src="images/image-product-1.jpg" alt="" />
           </div>
-          <div class="imageselector">
-            <img src="images/image-product-1-thumbnail.jpg" alt="" />
-            <img src="images/image-product-2-thumbnail.jpg" alt="" />
-            <img src="images/image-product-3-thumbnail.jpg" alt="" />
-            <img src="images/image-product-4-thumbnail.jpg" alt="" />
+          <div class="pictureselection">
+            <a href="#picture1" data-active-1>
+              <img src="images/image-product-1.jpg" alt="" />
+            </a>
+            <a href="#picture2" data-active-2>
+              <img src="images/image-product-2.jpg" alt="" />
+            </a>
+            <a href="#picture3" data-active-3>
+              <img src="images/image-product-3.jpg" alt="" />
+            </a>
+            <a href="#picture4" data-active-4>
+              <img src="images/image-product-4.jpg" alt="" />
+            </a>
           </div>
         </section>
 

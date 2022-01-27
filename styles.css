@@ -154,7 +154,7 @@ header {
   border-radius: 7px;
   top: -0.5em;
   font-family: var(--mfont);
-  visibility: visible;
+  visibility: hidden;
 }
 #cart {
   margin-right: 1em;
@@ -297,6 +297,10 @@ header {
   background-size: cover;
 }
 
+#head-image {
+  cursor: pointer;
+}
+
 /*Text container*/
 .description {
   margin: 1em 1.5em;
@@ -413,10 +417,37 @@ header {
     margin: 0em clamp(1em, 10vw, 20em);
   }
   .background-color-fx::before {
-    background: none;
+    z-index: 4;
+    top: 0;
   }
   .carousel {
+    position: absolute;
+    width: 40em;
+    height: 43em;
+    z-index: 4;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: none;
+  }
+  .carousel > ul {
+    position: absolute;
+  }
+  .carouselbtn {
+    width: 67px;
+    height: 67px;
+    margin: 0;
+  }
+  .carouselbtn-next {
+    left: 45em;
+  }
+  .carouselbtn-prev {
+    right: 45em;
+  }
+  .slide > img {
+    width: 40em;
+    height: 43em;
+    border-radius: 30px;
   }
   .ContentBody {
     display: grid;
@@ -479,7 +510,6 @@ header {
   }
   #numberofitems {
     position: relative;
-
     right: -2.8em;
     top: -3.3em;
   }
@@ -628,6 +658,44 @@ header {
   }
   #minusitem:hover {
     color: var(--dorange);
+  }
+
+  .pictureselection img {
+    width: 6.5em;
+    border-radius: 10px;
+  }
+  .pictureselection a::before {
+    position: absolute;
+    content: "";
+    width: 6.5em;
+    height: 6.6em;
+    background: transparent;
+    border-radius: 10px;
+  }
+  .pictureselection a:hover::before {
+    background: rgba(255, 255, 255, 0.5);
+  }
+  .pictureselection {
+    width: 100%;
+    margin-top: 1.5em;
+    display: flex;
+    justify-content: space-between;
+  }
+  #headimage {
+    width: 100%;
+  }
+  #headimage img {
+    width: 30em;
+    border-radius: 10px;
+  }
+  a[data-current-active]::before {
+    position: absolute;
+    content: "";
+    width: 6.5em;
+    height: 6.6em;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    outline: 3px var(--orange) solid;
   }
 }
 
