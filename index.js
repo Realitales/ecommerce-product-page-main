@@ -6,11 +6,89 @@ const body = document.querySelector("body");
 const cartcontainer = document.querySelector(".cartcontainer");
 const navbarcontainer = document.querySelector(".navbarcontainer");
 const numberofitems = document.querySelector("#numberofitems");
-const pictureselection = document.querySelectorAll(".pictureselection");
+const activeimage = document.querySelector("[data-active-image]");
+const picturebuttons = document.querySelectorAll("[data-picture-button]");
+const picture_container = document.querySelector(".picture-container");
+const picture_close_btn = document.querySelector("#close-btn");
+const pictureslideimg = document.querySelectorAll(".picture-slide-img");
+
 let itempricecounter = 0;
 let itemcount = 0
 let navbarstate = false;
 let cartstate = false;
+let newindex; 
+
+picture_close_btn.addEventListener("click", ()=>{
+
+    body.classList.remove("background-color-fx");
+    picture_container.style.visibility="hidden";
+})
+
+activeimage.addEventListener("click", () => {
+
+    body.classList.add("background-color-fx")
+    picture_container.style.visibility="visible";
+})
+
+
+
+pictureslideimg.forEach((li, index) => {
+
+    li.addEventListener("click", ()=> {
+       
+        newindex = index;
+        const pictureslides = document.querySelector("#picture-slide-container");
+        const active_picture_slide = document.querySelector("[data-active-picture-lightbox]");
+        const active_picture_selection = document.querySelector("[data-active-selection-lightbox]")
+
+        if(li.dataset.activeSelectionLightbox == "true") return;
+
+
+        
+        li.dataset.activeSelectionLightbox = true; 
+        delete active_picture_selection.dataset.activeSelectionLightbox; 
+        
+
+        pictureslides.children[newindex].dataset.activePictureLightbox = true;
+        delete active_picture_slide.dataset.activePictureLightbox;
+    })
+})
+
+picturebuttons.forEach(button => {
+
+    button.addEventListener("click", () =>{
+
+
+        const offset = button.dataset.pictureButton == "next" ? 1 : -1;
+
+        const pictureslides = document.querySelector("#picture-slide-container");
+        const active_picture_slide = document.querySelector("[data-active-picture-lightbox]");
+        const picture_sub_slides = document.querySelector("#picture-slide-selection");
+        const active_picture_selection = document.querySelector("[data-active-selection-lightbox]")
+
+        newindex = [...pictureslides.children].indexOf(active_picture_slide) + offset;
+        indexsubselection = [...picture_sub_slides.children].indexOf(active_picture_selection) + offset;
+        
+        if(newindex < 0 ) {
+            newindex = pictureslides.children.length - 1;
+            indexsubselection = picture_sub_slides.children.length - 1;
+        }
+          
+          
+        if(newindex >= pictureslides.children.length) {
+            newindex = 0
+            indexsubselection = 0;
+           }
+          
+        
+        pictureslides.children[newindex].dataset.activePictureLightbox = true;
+        delete active_picture_slide.dataset.activePictureLightbox;
+        picture_sub_slides.children[indexsubselection].dataset.activeSelectionLightbox = true;
+        delete active_picture_selection.dataset.activeSelectionLightbox;
+
+    })
+})
+
 
 picture_selector();
 function picture_selector(){
@@ -19,7 +97,7 @@ function picture_selector(){
     const active2 = document.querySelector("[data-active-2]");
     const active3 = document.querySelector("[data-active-3]");
     const active4 = document.querySelector("[data-active-4]");
-    const activeimage = document.querySelector("[data-active-image]");
+    
 
     active1.addEventListener("click", () => {
         activeimage.src ="images/image-product-1.jpg";
@@ -64,8 +142,6 @@ function picture_selector(){
 
 }
 
-
-
 document.addEventListener("click", (e) => {
 
     if(e.target.classList.contains("cartheader") ||
@@ -90,6 +166,8 @@ document.addEventListener("click", (e) => {
      navbarbutton.classList.remove("open-state-btn");
      navbarcontainer.classList.remove("open-state");
      navbarstate=false;
+     picture_container.style.visibility="hidden";
+
 
 })
 
@@ -187,13 +265,14 @@ buttons.forEach(button => {
 
        const offset = button.dataset.buttonCarousel === "next" ? 1 : -1
        const slides = button.closest("[active-carousel]").querySelector("[data-slides]")
-    
+       
        const activeSlide = slides.querySelector("[data-active-picture]")
        let newIndex = [...slides.children].indexOf(activeSlide) + offset;
        if (newIndex < 0) newIndex = slides.children.length - 1 
-       if (newIndex >= slides.children.length) newIndex = 0 
-   
+       if (newIndex >= slides.children.length) newIndex = 0
+
        slides.children[newIndex].dataset.activePicture = true
        delete activeSlide.dataset.activePicture
     })
+    
 })
